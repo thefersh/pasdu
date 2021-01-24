@@ -5,5 +5,10 @@
 HELLO WORLD
 <div id="clock"></div>
 </body>
-sohs
+<script>
+    var ev = new EventSource('/sse');
+    ev.addEventListener('time', function (result) {
+        document.getElementById("clock").innerHTML += '<h4>' + result.data + '</h4>'
+    })
+</script> 
 </html>
