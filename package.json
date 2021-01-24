@@ -1,6 +1,6 @@
 {
   "name": "pasdu",
-  "version": "0.0.1",
+  "version": "0.0.2nc",
   "scripts": {
     "ng": "ng",
     "build": "ng build",
@@ -34,9 +34,11 @@
     "class-transformer": "^0.2.3",
     "class-validator": "^0.9.1",
     "express": "^4.15.2",
+    "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
+    "typeorm": "^0.2.30",
     "zone.js": "~0.11.3"
   },
   "devDependencies": {
