@@ -8,5 +8,5 @@ app.use(cors());
 
 app.use(express.static(path.resolve(__dirname, '../static/')))
 
-
+app.get('/env', (req, res) => res.json(process.env));
 app.listen(PORT, HOST, () => console.log(`Server runing on port ${PORT}`));
