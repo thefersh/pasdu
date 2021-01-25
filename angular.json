@@ -1,12 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "cli": {
-    "packageManager": "npm"
-  },
   "newProjectRoot": "projects",
   "projects": {
-    "pasdu": {
+    "client": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pasdu/browser",
+            "outputPath": "dist/client/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,8 +25,7 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -62,27 +58,25 @@
                   "maximumWarning": "6kb",
                   "maximumError": "10kb"
                 }
-              ],
-              "serviceWorker": true,
-              "ngswConfigPath": "ngsw-config.json"
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pasdu:build"
+            "browserTarget": "client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pasdu:build:production"
+              "browserTarget": "client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pasdu:build"
+            "browserTarget": "client:build"
           }
         },
         "test": {
@@ -94,8 +88,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": [
               "src/favicon.ico",
-              "src/assets",
-              "src/manifest.webmanifest"
+              "src/assets"
             ],
             "styles": [
               "src/styles.scss"
@@ -121,27 +114,20 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pasdu:serve"
+            "devServerTarget": "client:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pasdu:serve:production"
+              "devServerTarget": "client:serve:production"
             }
           }
         },
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/pasdu/server",
+            "outputPath": "dist/client/server",
             "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "externalDependencies": [
-              "@nestjs/microservices",
-              "@nestjs/microservices/microservices-module",
-              "@nestjs/websockets",
-              "@nestjs/websockets/socket-module",
-              "cache-manager"
-            ]
+            "tsConfig": "tsconfig.server.json"
           },
           "configurations": {
             "production": {
@@ -153,34 +139,28 @@
                 }
               ],
               "sourceMap": false,
-              "optimization": false
+              "optimization": true
             }
-          },
-          "development": {
-            "inspect": false
           }
         },
         "serve-ssr": {
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
-            "browserTarget": "pasdu:build",
-            "serverTarget": "pasdu:server"
+            "browserTarget": "client:build",
+            "serverTarget": "client:server"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pasdu:build:production",
-              "serverTarget": "pasdu:server:production"
-            },
-            "development": {
-              "inspect": false
+              "browserTarget": "client:build:production",
+              "serverTarget": "client:server:production"
             }
           }
         },
         "prerender": {
           "builder": "@nguniversal/builders:prerender",
           "options": {
-            "browserTarget": "pasdu:build:production",
-            "serverTarget": "pasdu:server:production",
+            "browserTarget": "client:build:production",
+            "serverTarget": "client:server:production",
             "routes": [
               "/"
             ]
@@ -192,5 +172,5 @@
       }
     }
   },
-  "defaultProject": "pasdu"
+  "defaultProject": "client"
 }
