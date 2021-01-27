@@ -1,0 +1,12 @@
+<div class="container-nav" [class.is-mobile]="this.dom.bp === 'sm'">
+    <app-navbar-pasdu (toggle)="this.toggle($event)" class="toolbar"></app-navbar-pasdu>
+    <mat-sidenav-container class="sidenav-container" [style.marginTop.px]="this.dom.bp === 'sm' ? 56 : 0">
+      <mat-sidenav #snav [mode]="this.dom.bp === 'sm' ? 'over' : 'side'" [fixedInViewport]="this.dom.bp === 'sm'" fixedTopGap="56" [style.width]="this.dom.bp === 'sm' ? '80%' : '16.6666%'">
+        <app-sidebar-pasdu></app-sidebar-pasdu>
+      </mat-sidenav>
+      <mat-sidenav-content>
+        <router-outlet></router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+  

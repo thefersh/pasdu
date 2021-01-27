@@ -1,0 +1,30 @@
+<div class="w-100 h-100 d-flex"  [style.overflowX]="false ? 'initial' : 'hidden'">
+    <div class="w-100 h-100 transition-sb flex-shrink-0" [style.marginLeft]="isOpen ? '-100%' : '0%'">
+        <ng-container *ngFor="let o of this.sidebar; let i = index">
+            <div class="text-black-50 font-weight-bold space text-truncate" [title]="o.name" *ngIf="o.type === 'title'">{{ o.name }}</div> 
+            <a [routerLink]="o.redirect" [queryParams]="o.queryparams" class="btn btn-block text-left d-flex align-items-center" *ngIf="o.type === 'link'">
+                <span class="icon mr-2 flex-shrink-0"><i [class]="o.icon"></i></span>
+                <span class="flex-fill text-truncate">{{ o.name }}</span>
+            </a>
+            <button class="btn btn-block text-left d-flex align-items-center" (click)="this.changeMenu(o.menu, i)" [title]="o.name" *ngIf="o.type === 'menu'">
+                <span class="icon mr-2 flex-shrink-0"><i [class]="o.icon"></i></span>
+                <span class="flex-fill text-truncate">{{ o.name }}</span>
+                <i class="bi bi-caret-right"></i>
+            </button>
+        </ng-container>
+    </div>
+    <div class="w-100 h-100 transition-sb">
+        <button class="btn btn-block text-left d-flex align-items-center" (click)="this.isOpen = false">
+            <span class="icon mr-2 flex-shrink-0"><i class="bi bi-caret-left"></i></span>
+            <span class="flex-fill text-truncate">Atras</span>
+        </button>
+        
+        <ng-container *ngFor="let o of this.submenu">
+            <div class="text-black-50 font-weight-bold space text-truncate" [title]="o.name" *ngIf="o.type === 'title'">{{ o.name }}</div> 
+            <a [routerLink]="o.redirect" [queryParams]="o.queryparams" class="btn btn-block text-left d-flex align-items-center" *ngIf="o.type === 'link'">
+                <span class="icon mr-2 flex-shrink-0"><i [class]="o.icon"></i></span>
+                <span class="flex-fill text-truncate">{{ o.name }}</span>
+            </a>
+        </ng-container>
+    </div>
+</div>

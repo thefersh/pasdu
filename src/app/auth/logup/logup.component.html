@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-body">
+        <div class="text-center">
+            <h2>Registro</h2>
+            <p class="text-capitalize">{{appName}}</p>
+        </div>
+        <form class="pb-3" [formGroup]="this.form" (submit)="this.submit()">
+            <div class="form-group">
+                <label for="n">Nombre</label>
+                <input type="text" class="form-control" id="n" required formControlName="name" [class.is-valid]="this.form.controls.name.valid" [class.is-invalid]="!this.form.controls.name.valid">
+            </div>
+            <div class="form-group">
+                <label for="a">Apellido</label>
+                <input type="text" class="form-control" id="a" required formControlName="lastname" [class.is-valid]="this.form.controls.lastname.valid" [class.is-invalid]="!this.form.controls.lastname.valid">
+            </div>
+            <div class="form-group">
+                <label for="u">Nombre de usuario</label>
+                <input type="text" class="form-control" id="u" required formControlName="username" [class.is-valid]="this.form.controls.username.valid && this.userNameValid" [class.is-invalid]="!this.userNameValid && !this.form.controls.username.valid">
+                <div class="invalid-feedback d-block" *ngIf="this.userNameMsg !== ''">{{ this.userNameMsg }}</div>
+            </div>
+            <div class="form-group">
+                <label for="e">Correo Electronico</label>
+                <input type="email" class="form-control" id="e" required formControlName="email" [class.is-valid]="this.form.controls.email.valid" [class.is-invalid]="!this.form.controls.email.valid">
+            </div>
+            <div class="form-group">
+                <label for="p">Contraseña</label>
+                <input type="password" class="form-control" id="p" required formControlName="password" [class.is-valid]="this.form.controls.password.valid" [class.is-invalid]="!this.form.controls.password.valid">
+            </div>
+            <div class="d-flex flex-column align-items-center">
+                <button class="btn btn-block" type="submit" [class.btn-primary]="!this.isSubmit" [class.disabled]="this.isSubmit" [style.pointerEvents]="this.isSubmit ? 'none' : 'auto'">Registrarse <mat-spinner diameter="20" *ngIf="this.isSubmit" class="d-inline-block ml-1"></mat-spinner></button>
+                <span class="text-center d-block w-100 my-3">o</span>
+                <a routerLink="/login" class="btn btn-light btn-block">Iniciar Sesion</a>
+            </div>
+        </form>
+    </div>
+</div>

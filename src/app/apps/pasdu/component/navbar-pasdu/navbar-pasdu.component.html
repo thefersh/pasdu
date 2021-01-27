@@ -1,0 +1,23 @@
+<div class="navbar-container d-flex align-items-center justify-content-between px-3">
+    <div class="d-flex align-items-center">
+        <button *ngIf="this.dom.bp !== 'sm'" class="button-icon om" (click)="sidebarToggle()" mat-ripple><i class="bi bi-list"></i></button>
+        <a routerLink="/" class="text-decoration-none text-reset"><h4 class="m-0 om text-capitalize user-select-none">{{ this.appName }}</h4></a>
+    </div>
+    <div class="d-flex align-items-center">
+        <div class="om"><ng-container *ngTemplateOutlet="profile"></ng-container></div>
+        <button *ngIf="this.dom.bp === 'sm'" class="button-icon om" (click)="sidebarToggle()" mat-ripple><i class="bi bi-list"></i></button>
+    </div>
+</div>
+
+<ng-template #profile>
+    <div ngbDropdown class="d-inline-block">
+        <button id="navbardd" ngbDropdownToggle mat-ripple>
+            <img src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9" class="rounded-circle">
+        </button>
+        <div ngbDropdownMenu aria-labelledby="navbardd">
+          <a routerLink="/account" ngbDropdownItem style="padding: 0.25rem 1rem;"><span class="icon mr-2"><i class="bi bi-person"></i></span><span>Cuenta</span> </a>
+          <a routerLink="/settings" ngbDropdownItem style="padding: 0.25rem 1rem;"><span class="icon mr-2"><i class="bi bi-gear"></i></span><span>Configuracion</span> </a>
+          <button ngbDropdownItem style="padding: 0.25rem 1rem;"><span class="icon mr-2"><i class="bi bi-box-arrow-right"></i></span><span>Salir</span> </button>
+        </div>
+    </div>
+</ng-template>
