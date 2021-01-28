@@ -7,14 +7,27 @@ import { NavbarPasduComponent } from './component/navbar-pasdu/navbar-pasdu.comp
 import { SidebarPasduComponent } from './component/sidebar-pasdu/sidebar-pasdu.component';
 import { AngularMaterialConfig } from 'src/app/material.conf';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RoomPasduComponent } from './page/room-pasdu/room-pasdu.component';
+import { RoomViewPasduComponent } from './page/room-view-pasdu/room-view-pasdu.component';
+import { DomService } from 'src/app/service/dom.service';
 
 @NgModule({
-  declarations: [PasduLayoutComponent, HomePasduComponent, NavbarPasduComponent, SidebarPasduComponent],
+  declarations: [
+    PasduLayoutComponent,
+    HomePasduComponent,
+    NavbarPasduComponent,
+    SidebarPasduComponent,
+    RoomPasduComponent,
+    RoomViewPasduComponent
+  ],
   imports: [
     CommonModule,
     PasduRoutingModule,
     AngularMaterialConfig,
     NgbModule
+  ],
+  providers: [
+    DomService
   ]
 })
 export class PasduModule { }

@@ -1,0 +1,17 @@
+$theme-dark-color-0: #000000;
+$theme-dark-color-1: #444444;
+$theme-dark-color-2: #737373;
+$theme-dark-color-3: #A1A1A1;
+$theme-dark-color-4: #D0D0D0;
+$theme-dark-color-5: #FFFFFF;
+
+@mixin dark-mode-1 {
+    background-color: $theme-dark-color-0;
+    color: $theme-dark-color-4;
+}
+
+.room{
+    width: 100vw;
+    height: 100vh;
+    @include dark-mode-1();
+}

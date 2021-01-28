@@ -14,15 +14,8 @@ export class SidebarPasduComponent implements OnInit {
   isOpen = false;
   constructor() {
     this.sidebar = [
-      {type: 'menu', name: 'Pasdu (super)', icon: 'bi bi-building', menu: [
-        {type: 'link', name: 'Inicio', icon: 'bi bi-house', redirect: '/super', queryparams: {a: 'link', f: 'sidebar'}},
-        {type: 'title', name: 'Institucion'},
-        {type: 'link', name: 'Añadir', icon: 'bi bi-building', redirect: '/super/institution/add', queryparams: {a: 'link', f: 'sidebar'}},
-      ]},
-      {type: 'menu', icon: 'bi bi-briefcase', name: 'inst (Profesor)', menu: [
-        {type: 'link', icon: 'bi bi-card-image', name: 'NameClase', redirect: '/course/idclase', queryparams: {a: 'link', f: 'sidebar'}}
-      ]},
-      {type: 'link', icon: 'bi bi-card-image', name: 'NameClase (Estudiante)', redirect: '/course/idclase', queryparams: {a: 'link', f: 'sidebar'}},
+      {type: 'link', icon: 'bi bi-house', name: 'Inicio', redirect: '/pasdu', queryparams: {a: 'link', f: 'sidebar'}},
+      {type: 'link', icon: 'bi bi-camera-video', name: 'Salon', redirect: '/pasdu/room', queryparams: {a: 'link', f: 'sidebar'}},
     ];
     /*
     this.menu.getSidebar().then(s => {

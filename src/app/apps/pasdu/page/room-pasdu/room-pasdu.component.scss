@@ -1,0 +1,16 @@
+.countdown{
+    font-size: 1.75rem;
+    div{
+        display: inline-block;
+        &::before{
+            content: ':';
+            margin: 0 7.5px;
+        }
+        &:first-child {
+            &::before {
+                content: '';
+                margin: initial;
+            }
+        }
+    }
+}

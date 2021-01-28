@@ -31,6 +31,7 @@
               "src/styles.scss"
             ],
             "scripts": []
+            
           },
           "configurations": {
             "production": {
@@ -128,6 +129,7 @@
             "outputPath": "dist/client/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json"
+            
           },
           "configurations": {
             "production": {
