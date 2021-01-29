@@ -14,3 +14,10 @@
         }
     }
 }
+.next-events{
+    max-width: 500px;
+    @media (max-width: 767.98px) {
+        max-width: 90vw;
+        padding: 0 1rem;
+    }
+}

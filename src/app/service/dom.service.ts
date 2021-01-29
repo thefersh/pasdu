@@ -29,4 +29,24 @@ export class DomService {
     this.document.querySelectorAll('head')[0].appendChild(link);
   }
 
+  addJitsiApi(): Promise<void>{
+    return new Promise((res, err) => {
+      const script = this.document.createElement('script');
+      script.src = 'https://meet.jit.si/external_api.js';
+      script.onload = () => res();
+      this.document.querySelectorAll('body')[0].appendChild(script);
+    });
+  }
+
+  addJistsiJsApi(): Promise<void>{
+    return new Promise((res, err) => {
+      const script = this.document.createElement('script');
+      script.src = 'https://meet.jit.si/libs/lib-jitsi-meet.min.js';
+      script.onload = () => res();
+      script.onerror = () => err();
+      this.document.querySelectorAll('body')[0].appendChild(script);
+    });
+  }
+
+
 }

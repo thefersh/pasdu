@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RoomPasduComponent } from './page/room-pasdu/room-pasdu.component';
 import { RoomViewPasduComponent } from './page/room-view-pasdu/room-view-pasdu.component';
 import { DomService } from 'src/app/service/dom.service';
+import { RoomService } from './services/room.service';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { DomService } from 'src/app/service/dom.service';
     NgbModule
   ],
   providers: [
-    DomService
+    DomService,
+    RoomService
   ]
 })
 export class PasduModule { }

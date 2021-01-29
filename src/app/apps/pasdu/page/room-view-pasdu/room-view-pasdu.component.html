@@ -1,1 +1,24 @@
-<p>room-view-pasdu works!</p>
+<div class="room" *ngIf="!this.isJitsi">
+
+    <div class="info d-flex w-100 h-100 align-items-center justify-content-center" *ngIf="!this.err">
+        <p class="text-muted" *ngIf="!this.loadinfo">Verificando Reunion</p>
+        <p class="text-muted" *ngIf="this.loadinfo">Cargando Reunion</p>
+    </div>
+
+    <div *ngIf="this.err" class="info d-flex w-100 h-100 align-items-center justify-content-center flex-column" style="position: absolute;top: 0;z-index: 1000;">
+        <h1>{{ errMsg }}</h1>
+        <div>
+            <button (click)="this.reload()" class="btn btn-sm btn-outline-primary" *ngIf="this.errAction === 'reload'">Recaragar Pagina</button>
+        </div>
+    </div>
+</div>
+
+<div class="room" id="jsmdis" [class.d-none]="!this.isJitsi"></div>
+
+<div class="time">
+    <div class="countdown">
+        <div>{{ this.countdownHour > 9 ? this.countdownHour : '0' + this.countdownHour}}</div>
+        <div>{{ this.countdownMinute > 9 ? this.countdownMinute : '0' + this.countdownMinute}}</div>
+        <div>{{ this.countdownSeconds > 9 ? this.countdownSeconds : '0' + this.countdownSeconds}}</div>
+    </div>
+</div>
